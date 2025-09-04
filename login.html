@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GIKI Prep Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <div id="toast-notification" class="toast-notification" style="display:none;">
+        <span id="toast-message"></span>
+        <button class="toast-close" aria-label="Close notification">&times;</button>
+    </div>
+    <nav class="navbar animate__animated animate__fadeIn">
+        <div class="logo">
+            <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+            <span>GIKI Prep Hub</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="merit-syllabus.html">Merit Lists & Syllabus</a>
+            <a href="faq.html">FAQs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Login</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+    <section id="login" class="animate__animated animate__fadeInDown">
+        <div class="signup-header">
+            <span class="signup-icon"><i class="fas fa-sign-in-alt"></i></span>
+            <h2>Student Login</h2>
+            <p class="signup-desc">Login to access exclusive resources and downloads!</p>
+        </div>
+        <form id="signupForm">
+            <div class="input-group">
+                <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <span class="input-icon"><i class="fas fa-lock"></i></span>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="animate__animated animate__pulse animate__infinite">Login</button>
+        </form>
+        <div style="text-align:center; margin-top:1.5rem;">
+            <a href="signup.html" class="btn btn-secondary" style="padding:0.7rem 2rem; font-size:1rem; border-radius:6px; background:#f1f1f1; color:#3498db; border:none; text-decoration:none; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:background 0.2s;">Not a user? Create an account</a>
+        </div>
+        <div id="loginMessage"></div>
+    </section>
+    <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+/* css/signup.css */
+/* Use base styles from style.css */
+/* Navbar Styling */
+.navbar {
+    width: 100%;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 2px 16px rgba(44,62,80,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 2.5vw;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2980b9;
+}
+.logo-icon {
+    font-size: 2rem;
+    margin-right: 8px;
+    color: #2980b9;
+}
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 6px 16px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-links a.active, .nav-links a:hover {
+    background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
+    color: #fff;
+}
+.mobile-menu-btn {
+    display: none;
+}
+#signup {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px 40px 30px 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: floatCard 2s ease;
+}
+#login {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px 40px 30px 40px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: floatCard 2s ease;
+}
+#signup h2 {
+    margin-bottom: 10px;
+    color: #2980b9;
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+/* Signup header and icon */
+#signup .signup-header {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+#signup .signup-icon {
+    font-size: 2.7rem;
+    color: #2980b9;
+    margin-bottom: 8px;
+    animation: bounceIcon 1.5s infinite;
+    filter: drop-shadow(0 2px 8px #6dd5fa);
+}
+#signup .signup-desc {
+    color: #555;
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+#signupForm input {
+    width: 100%;
+    padding: 12px 8px;
+    border: none;
+    background: transparent;
+    font-size: 17px;
+    outline: none;
+    color: #2c3e50;
+    font-weight: 500;
+}
+/* Input group styling */
+#signupForm .input-group {
+    display: flex;
+    align-items: center;
+    background: rgba(241,246,251,0.95);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    padding: 8px 16px;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    transition: box-shadow 0.2s;
+    border: 1px solid rgba(44,62,80,0.07);
+}
+#signupForm .input-group:focus-within {
+    box-shadow: 0 4px 16px rgba(44,62,80,0.13);
+    border-color: #2980b9;
+}
+#signupForm .input-icon {
+    color: #2980b9;
+    font-size: 1.3rem;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+#signupForm button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(90deg, #2980b9 0%, #6dd5fa 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px rgba(44,62,80,0.13);
+    transition: background 0.2s, transform 0.2s;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px rgba(44,62,80,0.10);
+}
+#signupForm button:hover {
+    background: linear-gradient(90deg, #6dd5fa 0%, #2980b9 100%);
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(44,62,80,0.18);
+}
+#signupMessage {
+    margin-top: 22px;
+    font-size: 1.13rem;
+    min-height: 28px;
+    font-weight: 600;
+    transition: color 0.2s;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+@keyframes floatCard {
+    0% { transform: translateY(40px) scale(0.98); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes bounceIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+/* Responsive Design */
+@media (max-width: 600px) {
+    #signup {
+        max-width: 98vw;
+        padding: 18vw 2vw 10vw 2vw;
+        margin: 18vw auto 8vw auto;
+    }
+    .navbar {
+        flex-direction: column;
+        padding: 2vw 2vw;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 0.7rem;
+    }
+    .logo {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - GIKI Prep Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/creator.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+            <span>GIKI Prep Hub</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="merit-syllabus.html">Merit & Syllabus</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Login</a>
+        </ul>
+    </nav>
+    <main class="profile-container card">
+        <h2 class="section-title">Your Profile</h2>
+        <div class="profile-card card-content">
+            <div class="profile-flex">
+                <img id="profile-pic" src="" alt="Profile Picture" class="profile-img" />
+                <div class="profile-info">
+                    <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                </div>
+            </div>
+        </div>
+        <button id="logout-btn" class="btn btn-primary">Logout</button>
+    </main>
+    <script src="js/profile.js"></script>
+</body>
+</html>

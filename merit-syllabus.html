@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merit Lists & Syllabus - GIKI Prep Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/merit-syllabus.css">
+</head>
+<body>
+    <nav class="navbar animate__animated animate__fadeIn">
+        <div class="logo">
+            <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+            <span>GIKI Prep Hub</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html">Resources</a>
+            <a href="merit-syllabus.html" class="active">Merit Lists & Syllabus</a>
+            <a href="faq.html" class="active">FAQs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Login</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+    
+    <section class="merit-hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInDown">Merit Lists & Syllabus</h1>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">Historical merit lists and current syllabus for GIKI Entrance Test</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="merit-section">
+        <div class="section-header animate__animated animate__fadeIn">
+            <h2>Previous Years Merit Lists</h2>
+            <div class="divider"></div>
+            <p>View the merit lists from previous years to understand the admission trends</p>
+        </div>
+        
+        <div class="year-selector">
+            <button class="year-btn active" data-year="all">All Years</button>
+            <button class="year-btn" data-year="2025">2025</button>
+            <button class="year-btn" data-year="2024">2024</button>
+        </div>
+        
+        <div class="merit-container">
+            <!-- Merit lists will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <section class="syllabus-section">
+        <div class="section-header animate__animated animate__fadeIn">
+            <h2>Current Syllabus</h2>
+            <div class="divider"></div>
+            <p>Official syllabus for GIKI Entrance Test</p>
+        </div>
+        
+        <div class="syllabus-tabs">
+            <button class="tab-btn active" data-tab="engineering">Engineering</button>
+            <button class="tab-btn" data-tab="management">Management Sciences</button>
+        </div>
+        
+        <div class="syllabus-content">
+            <div class="tab-content active" id="engineering">
+                <h3>Engineering Program Syllabus</h3>
+                <div class="syllabus-grid">
+                    <div class="syllabus-subject">
+                        <h4><i class="fas fa-square-root-alt"></i> Mathematics</h4>
+                        <ul>
+                            <li>Algebra and Trigonometry</li>
+                            <li>Matrices and Determinants</li>
+                            <li>Coordinate Geometry</li>
+                            <li>Calculus</li>
+                            <li>Vectors and Statics</li>
+                            <li>Dynamics</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-subject">
+                        <h4><i class="fas fa-atom"></i> Physics</h4>
+                        <ul>
+                            <li>Measurements</li>
+                            <li>Vectors and Equilibrium</li>
+                            <li>Motion and Force</li>
+                            <li>Work and Energy</li>
+                            <li>Circular Motion</li>
+                            <li>Fluid Dynamics</li>
+                            <li>Oscillations</li>
+                            <li>Waves</li>
+                            <li>Optics</li>
+                            <li>Electrostatics</li>
+                            <li>Current Electricity</li>
+                            <li>Electromagnetism</li>
+                            <li>Modern Physics</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-subject">
+                        <h4><i class="fas fa-language"></i> English</h4>
+                        <ul>
+                            <li>Grammar and Usage</li>
+                            <li>Vocabulary</li>
+                            <li>Reading Comprehension</li>
+                            <li>Sentence Completion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="management">
+                <h3>Management Sciences Syllabus</h3>
+                <div class="syllabus-grid">
+                    <div class="syllabus-subject">
+                        <h4><i class="fas fa-calculator"></i> Arithmetic & Logical Reasoning</h4>
+                        <ul>
+                            <li>Basic Arithmetic Operations</li>
+                            <li>Percentage, Ratio and Proportion</li>
+                            <li>Profit and Loss</li>
+                            <li>Interest Calculations</li>
+                            <li>Data Interpretation</li>
+                            <li>Logical Sequences</li>
+                            <li>Pattern Recognition</li>
+                            <li>Verbal Reasoning</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-subject">
+                        <h4><i class="fas fa-language"></i> English</h4>
+                        <ul>
+                            <li>Grammar and Usage</li>
+                            <li>Vocabulary</li>
+                            <li>Reading Comprehension</li>
+                            <li>Sentence Completion</li>
+                            <li>Business Communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-icon"><i class="fas fa-graduation-cap"></i></span>
+                <span>GIKI Prep Hub</span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GIKI Prep Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/merit-syllabus.js"></script>
+    <script src="js/profile-widget.js"></script>
+</body>
+</html>

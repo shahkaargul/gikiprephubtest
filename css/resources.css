@@ -1,0 +1,649 @@
+/* ===== ENHANCED VARIABLES ===== */
+:root {
+  /* Colors - refined palette (blue removed from backgrounds) */
+  --color-primary: #4a5568;
+  --color-primary-light: #718096;
+  --color-primary-dark: #2d3748;
+  --color-text-dark: #1a202c;
+  --color-text-mid: #4a5568;
+  --color-text-light: #f7fafc;
+  --color-bg-light: #f8fafc;
+  --color-bg-white: #fff;
+  --color-border: #e2e8f0;
+  --color-accent: #e53e3e;
+  --color-success: #38a169;
+  --color-warning: #d69e2e;
+  --color-card-1: #f56565;
+  --color-card-2: #4299e1;
+  --color-card-3: #48bb78;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 2.5rem;
+  
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Shadows - refined for subtlety */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  line-height: 1.6;
+  color: var(--color-text-dark);
+  background-color: var(--color-bg-light);
+}
+
+.resources-section {
+  padding: 8rem 0 4rem;
+  background-color: var(--color-bg-light);
+  min-height: 100vh;
+}
+
+.resources-section h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-xxl);
+  color: var(--color-text-dark);
+  position: relative;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.resources-section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-card-1), var(--color-card-2), var(--color-card-3));
+  border-radius: 2px;
+}
+
+/* ===== TAB NAVIGATION ===== */
+.resource-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: 3rem;
+  padding: 0 var(--spacing-md);
+}
+
+.tab-button {
+  padding: var(--spacing-sm) 1.8rem;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--color-text-mid);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-button.active {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-primary);
+  border-color: var(--color-primary);
+}
+
+.tab-button:hover:not(.active) {
+  background: var(--color-bg-light);
+  color: var(--color-primary-dark);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ===== CONTENT AREA ===== */
+.resource-content {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xxl);
+  box-shadow: var(--shadow-md);
+  min-height: 400px;
+  margin: 0 auto;
+  max-width: 1200px;
+  transition: all var(--transition-normal);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.resource-content h2 {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.8rem;
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-border);
+  font-weight: 600;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.resource-grid,
+.past-papers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* ===== CARD COMPONENTS ===== */
+.resource-card,
+.past-paper-card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.resource-card::before,
+.past-paper-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-card-1), var(--color-card-2), var(--color-card-3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.resource-card:hover::before,
+.past-paper-card:hover::before {
+  transform: scaleX(1);
+}
+
+.resource-card:hover,
+.past-paper-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border);
+}
+
+.resource-card h3,
+.past-paper-card h3 {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.2rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.past-paper-card h3 {
+  font-size: 1.1rem;
+}
+
+.resource-card p,
+.past-paper-card p {
+  color: var(--color-text-mid);
+  margin-bottom: var(--spacing-lg);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* ===== BUTTONS & LINKS ===== */
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) 1.2rem;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all var(--transition-normal);
+  align-self: flex-start;
+  gap: var(--spacing-xs);
+  border: none;
+  cursor: pointer;
+}
+
+.resource-link:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+/* ===== LECTURE CARDS ===== */
+.lecture-card {
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  transition: all var(--transition-normal);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.lecture-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-card-1), var(--color-card-2), var(--color-card-3));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.lecture-card:hover::before {
+  transform: scaleX(1);
+}
+
+.lecture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.lecture-card h3 {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.lecture-card p {
+  color: var(--color-text-mid);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.lecture-card .resource-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+/* Physics card specific */
+.lecture-card:nth-child(1)::before {
+  background: var(--color-card-1);
+}
+
+/* Math card specific */
+.lecture-card:nth-child(2)::before {
+  background: var(--color-card-2);
+}
+
+/* English card specific */
+.lecture-card:nth-child(3)::before {
+  background: var(--color-card-3);
+}
+
+/* ===== SPECIAL COMPONENTS ===== */
+.section-description {
+  text-align: center;
+  color: var(--color-text-mid);
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.paper-icon {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.paper-details {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-text-mid);
+  background: var(--color-bg-light);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-sm);
+}
+
+.detail i {
+  color: var(--color-primary);
+}
+
+.practice-tests {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-xl);
+  border-top: 2px solid var(--color-border);
+}
+
+.practice-tests h3 {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.best-card {
+  background: var(--color-bg-white);
+  color: var(--color-text-dark);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  border: 1px solid var(--color-border);
+}
+
+.best-card::before {
+  background: linear-gradient(90deg, var(--color-card-1), var(--color-card-2), var(--color-card-3));
+  height: 6px;
+}
+
+.best-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.best-card h3 {
+  color: var(--color-text-dark);
+  font-weight: 700;
+}
+
+.best-card p {
+  color: var(--color-text-mid);
+  font-weight: 500;
+}
+
+.best-card .resource-link {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+}
+
+.best-card .resource-link:hover {
+  background: var(--color-primary-dark);
+  color: var(--color-text-light);
+  transform: translateY(-2px);
+}
+
+.resource-icon {
+  font-size: 2.2rem;
+  color: var(--color-text-light);
+  background: var(--color-primary);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  left: 0;
+  transition: transform var(--transition-normal);
+}
+
+.resource-card:hover .resource-icon {
+  transform: scale(1.1);
+}
+
+.no-resources {
+  text-align: center;
+  color: var(--color-text-mid);
+  font-size: 1.1rem;
+  padding: var(--spacing-xl);
+  grid-column: 1 / -1;
+  background: var(--color-bg-light);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-in {
+  animation: slideInUp 0.6s ease forwards;
+}
+
+.resource-link.loading {
+  position: relative;
+  color: transparent;
+}
+
+.resource-link.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+  .resource-content {
+    padding: var(--spacing-xl);
+  }
+  
+  .resource-grid, 
+  .past-papers-grid,
+  .lectures-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .resources-section {
+    padding: 6rem 0 2rem;
+  }
+  
+  .resources-section h1 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .resource-tabs {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .resource-content {
+    padding: var(--spacing-lg);
+    min-height: 300px;
+    border-radius: var(--radius-md);
+  }
+  
+  .resource-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .lecture-card {
+    padding: var(--spacing-lg);
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-white);
+    padding: var(--spacing-md);
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-links a {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-dark);
+  }
+  
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .resources-section {
+    padding: 5rem 0 1.5rem;
+  }
+  
+  .resources-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .resource-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .tab-button {
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  .resource-grid, 
+  .past-papers-grid,
+  .lectures-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .resource-card, 
+  .past-paper-card,
+  .lecture-card {
+    padding: 1.25rem;
+  }
+  
+  .paper-details {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+  
+  .resource-content {
+    padding: var(--spacing-md);
+  }
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+}
+
+/* Lectures grid specific */
+.lectures-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}

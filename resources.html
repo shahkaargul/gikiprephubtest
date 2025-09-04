@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - GIKI Prep Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/resources.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <script>
+    // Redirect to login if not signed up or logged in
+    if (!localStorage.getItem('student_token')) {
+        window.location.replace('login.html');
+    }
+    </script>
+    <nav class="navbar">
+        <div class="logo">GIKI Prep Hub</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="resources.html" class="active">Resources</a>
+            <a href="merit-syllabus.html">Merit Lists & Syllabus</a>
+            <a href="faq.html" class="active">FAQs</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Login</a>
+        </div>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+    
+    <section class="resources-section">
+        <div class="container">
+            <h1>Study Resources</h1>
+            <div class="resource-tabs">
+                <button class="tab-button active" data-tab="tpp">Topical Practice Questions</button>
+                <button class="tab-button" data-tab="lectures">Lectures</button>
+                <button class="tab-button" data-tab="websites">Helpful Websites</button>
+                <button class="tab-button" data-tab="past-papers">Past Papers</button>
+            </div>
+            
+            <div class="resource-content">
+                <!-- Topical Practice Questions Section -->
+                <div id="tpp" class="tab-content active">
+                    <h2>Topical Practice Questions</h2>
+                    <div class="resource-grid">
+                <div id="login-notification" class="notification-popup" style="display:none;">
+                    <div class="notification-content">
+                        <div class="notification-header">
+                            <i class="fas fa-exclamation-circle notification-icon"></i>
+                            <span class="notification-title">Login Required</span>
+                        </div>
+                        <div class="notification-messages">
+                            <span class="notification-message main-message">You must be logged in to access resources.</span>
+                            <span class="notification-message">Please login or create an account to continue.</span>
+                        </div>
+                    </div>
+                    <button class="notification-close" aria-label="Close notification"><i class="fas fa-times"></i></button>
+                    <div class="notification-actions">
+                        <a href="login.html" class="btn">Login</a>
+                        <a href="signup.html" class="btn">Signup</a>
+                    </div>
+                </div>
+                <script>
+                // Check login status and show styled notification
+                if (!localStorage.getItem('student_token')) {
+                    document.getElementById('login-notification').style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    document.querySelector('.notification-close').onclick = function() {
+                        document.getElementById('login-notification').style.display = 'none';
+                        document.body.style.overflow = '';
+                    };
+                }
+                </script>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-atom"></i></div>
+                            <h3>Physics</h3>
+                            <p>Physics to the point Material for GIKI Engineering Prep</p>
+                            <a href="#" class="resource-link"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-square-root-alt"></i></div>
+                            <h3>Mathematics</h3>
+                            <p>Mathematics to the point Material for GIKI Engineering Prep</p>
+                            <a href="#" class="resource-link"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-language"></i></div>
+                            <h3>English</h3>
+                            <p>English to the point Material for GIKI Engineering Prep</p>
+                            <a href="#" class="resource-link"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-file-alt"></i></div>
+                            <h3>English Past Papers</h3>
+                            <p>English language proficiency test papers</p>
+                            <a href="#" class="resource-link"><i class="fas fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lectures Section -->
+                <div id="lectures" class="tab-content">
+                    <h2>Lectures</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-video"></i></div>
+                            <h3>Physics Lectures</h3>
+                            <p>Comprehensive video lectures for Physics preparation</p>
+                            <a href="#" class="resource-link"><i class="fas fa-play-circle"></i> Watch Now</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <h3>Mathematics Lectures</h3>
+                            <p>Step-by-step math problem solving videos</p>
+                            <a href="#" class="resource-link"><i class="fas fa-play-circle"></i> Watch Now</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-book"></i></div>
+                            <h3>English Lectures</h3>
+                            <p>English proficiency and test preparation videos</p>
+                            <a href="#" class="resource-link"><i class="fas fa-play-circle"></i> Watch Now</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-brain"></i></div>
+                            <h3>IQ Lectures</h3>
+                            <p>Intelligence test preparation and practice</p>
+                            <a href="#" class="resource-link"><i class="fas fa-play-circle"></i> Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Helpful Websites Section -->
+                <div id="websites" class="tab-content">
+                    <h2>Top Helpful Websites</h2>
+                    <div class="resource-grid">
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <h3>Khan Academy</h3>
+                            <p>Free online courses for math and science</p>
+                            <a href="https://www.khanacademy.org/" target="_blank" class="resource-link"><i class="fas fa-external-link-alt"></i> Visit</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-calculator"></i></div>
+                            <h3>Paul's Online Math Notes</h3>
+                            <p>Excellent math resource with tutorials</p>
+                            <a href="https://tutorial.math.lamar.edu/" target="_blank" class="resource-link"><i class="fas fa-external-link-alt"></i> Visit</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>IndiaBix (Best for Management Sciences Prep)</h3>
+                            <p>Aptitude questions and answers for your placement interviews and competitive exams!</p>
+                            <a href="https://www.indiabix.com/" target="_blank" class="resource-link"><i class="fas fa-external-link-alt"></i> Visit</a>
+                        </div>
+                        <div class="resource-card best-card">
+                            <div class="resource-icon"><i class="fas fa-calculator"></i></div>
+                            <h3>GIKI Aggregate Calculator</h3>
+                            <p>Calculate your GIKI Entrance Test Aggregate based on Last Year's merit list</p>
+                            <a href="https://shahkaargul.github.io/GIKIAggregateCalc/" target="_blank" class="resource-link"><i class="fas fa-external-link-alt"></i> Visit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Papers Section -->
+                <div id="past-papers" class="tab-content">
+                    <h2>Past Papers Collection</h2>
+                    <div class="past-papers-grid">
+                        <div class="past-paper-card" data-year="2023">
+                            <div class="paper-icon"><i class="fas fa-file-pdf"></i></div>
+                            <h3>2023 GIKI - Past Paper</h3>
+                            <div class="paper-details">
+                                <span class="detail"><i class="fas fa-calendar"></i> 2023</span>
+                                <span class="detail"><i class="fas fa-file-alt"></i> Engineering</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1bTxcoxFJApBHbDBL-yt6er023voiGFS8/view" class="resource-link"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                        
+                        <div class="past-paper-card" data-year="2022">
+                            <div class="paper-icon"><i class="fas fa-file-pdf"></i></div>
+                            <h3>2010 GIKI - Past Paper</h3>
+                            <div class="paper-details">
+                                <span class="detail"><i class="fas fa-calendar"></i> 2010</span>
+                                <span class="detail"><i class="fas fa-file-alt"></i> Engineering</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1GVt-Z0pJK6yPB-HCc0lG6PgFjkpywXVs/view" class="resource-link"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                        
+                        <div class="past-paper-card" data-year="2021">
+                            <div class="paper-icon"><i class="fas fa-file-pdf"></i></div>
+                            <h3>2016 GIKI - Past Paper</h3>
+                            <div class="paper-details">
+                                <span class="detail"><i class="fas fa-calendar"></i> 2016</span>
+                                <span class="detail"><i class="fas fa-file-alt"></i> Math & Physics </span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/12XY87QFJu6E9kWb9lD2SwZ8QyadltylW/view" class="resource-link"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                        
+                        <div class="past-paper-card" data-year="2020">
+                            <div class="paper-icon"><i class="fas fa-file-pdf"></i></div>
+                            <h3>2020 GIKI - Sample Paper</h3>
+                            <div class="paper-details">
+                                <span class="detail"><i class="fas fa-calendar"></i> 2020</span>
+                                <span class="detail"><i class="fas fa-file-alt"></i> Engineering</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1RQuy0AALMs25vgJHXcPTykG1Uyfw78xY/view" class="resource-link"><i class="fas fa-download"></i> Download PDF</a>
+                        </div>
+                        <!-- More past paper cards can be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/profile-widget.js"></script>
+</body>
+</html>
